@@ -15,37 +15,46 @@
     <div class="container">
       <a class="logo" href="/">Directory</a>
       <ul class="top-bar-section">
-        <li><a href="/questions/new">Ask A Question</a></li>
         <% if signed_in? %>
-          <li><a href="/sign_out">Sign out</a></li>
-          <li><%= link_to "Sign Out", destroy_user_session_path %></li>
+        <li><a href="/questions/new">Ask A Question</a></li>
+          <li><%= link_to "Sign Out", destroy_user_session_path, :method => :delete %></li>
         <% else %>
         <li><%= link_to "Sign Up", new_user_registration_path %></li>
+        <li><%= link_to "Sign In", new_user_session_path %></li>
         <% end %>
       </ul>
     </div>
   </div>
 
 
+
+
   <% if flash.any? %>
     <div class="flash">
       <div class="container">
         <ul style="margin: 0">
-          <div class="notice devise"><%= notice %></div>
-          <div class="alert devise"><%= alert %></div>
-          <% binding.pry %>
-          <% flash[:notice] = [flash["notice"]] %>
-        <% flash[:notice].each do |flash| %>
-        <li><%= flash %></li>
-        <% end %>
+          <% if alert != nil %>
+          <li><%= alert %></li>
+          <% elsif notice.is_a? String %>
+          <%= notice %>
+          <% elsif notice.size == 1 %>
+            <li><%= notice.first %></li>
+<!--             <%= alert %> -->
+          <% else %>
+            <% flash[:notice].each do |flash| %>
+            <li><%= flash %></li>
+            <% end %>
+            <% end %>
         </ul>
       </div>
     </div>
   <% end %>
 
-
+<div class="container">
 
 <%= yield %>
+
+</div>
 
 </body>
 </html>

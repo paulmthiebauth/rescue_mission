@@ -23,9 +23,11 @@ ActiveRecord::Schema.define(version: 20150324225212) do
   end
 
   create_table "questions", force: :cascade do |t|
-    t.integer "user_id", null: false
-    t.string  "title",   null: false
-    t.string  "body",    null: false
+    t.integer  "user_id",    null: false
+    t.string   "title",      null: false
+    t.string   "body",       null: false
+    t.datetime "created_at"
+    t.datetime "updated_at"
   end
 
   create_table "users", force: :cascade do |t|

@@ -1,4 +1,5 @@
 class AnswersController < ApplicationController
+  before_filter :authenticate_user!
 
   def index
     @question = Question.find(params[:question_id])
@@ -11,9 +12,10 @@ class AnswersController < ApplicationController
   end
 
   def create
+    user_id = current_user.id
     body = params["answer"]["body"]
     question_id = params["question_id"].to_i
-    answer = Answer.new(question_id: question_id, user_id: 1, body: body)
+    answer = Answer.new(question_id: question_id, user_id: user_id, body: body)
     if answer.save
       flash[:notice] = ['Answer added.']
       redirect_to "/questions/#{question_id}"

@@ -19,7 +19,7 @@
 <% @answer_list = @answer_list.sort_by {|x| x.id}.reverse %>
 <% @answer_list.each do |answer| %>
 <% user = User.where(id: answer.user_id) %>
-<%= user.first.username %>:<br>
+<%= user.first.first_name %>:<br>
 <%= answer.body %> <br /><br />
 <% end %>
 </div>
