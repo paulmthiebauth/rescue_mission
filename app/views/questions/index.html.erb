@@ -1,0 +1,10 @@
+
+  <div class="container">
+  <h3> Question List </h3>
+  <ul>
+  <% @questions = @questions.sort_by{|c| c.created_at}.reverse %>
+  <% @questions.each do |question| %>
+  <li><a href = "/questions/<%= question.id %>"><%= question.title %></a></li><br /><br />
+  <% end %>
+  </ul>
+  </div>

@@ -1,0 +1,25 @@
+
+<div class="container">
+<br /><a href="/questions">Back to Questions Directory</a><br /><br />
+<a href="/questions/<%= params[:id] %>/edit">Edit Your Question</a><br /><br />
+<%= link_to 'Delete Question', "/questions/" + params[:id], :method => "delete" %><br>
+<h3>Question Information</h3>
+<h3><%= @questions.title %> </h3>
+
+<%= @questions.body %><br /><br />
+
+<%= form_for [@questions, @answers] do |f| %>
+<%= f.label :body, "Answer: " %><br />
+<%= f.text_area :body, :cols => "100", :rows => "10" %><br />
+<%= f.submit %>
+<% end %>
+<br />
+<br />
+
+<% @answer_list = @answer_list.sort_by {|x| x.id}.reverse %>
+<% @answer_list.each do |answer| %>
+<% user = User.where(id: answer.user_id) %>
+<%= user.first.username %>:<br>
+<%= answer.body %> <br /><br />
+<% end %>
+</div>

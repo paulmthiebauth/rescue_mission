@@ -1,0 +1,44 @@
+
+body {
+  background-image: url('/images/stardust.png');
+  color: black;
+  background-color: #7887AB
+}
+
+a,
+a:visited {
+  color: black;
+  text-decoration: none;
+}
+
+.container {
+  max-width: 95%;
+  margin: 0 auto;
+}
+
+.top-bar {
+  font-size: 20px;
+  background-color: #FF7F00;
+  font-weight: bold;
+}
+
+.top-bar-section {
+  display: inline-block;
+  float: right;
+}
+
+.top-bar-section li {
+  display: inline-block;
+  margin-left: 1em;
+}
+
+.logo {
+  display: inline-block;
+  margin: 1em 0;
+}
+
+.flash {
+  padding-top: 1em;
+  padding-bottom: 1em;
+  background-color: #3B9089;
+}
