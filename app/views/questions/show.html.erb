@@ -1,25 +1,41 @@
 
-<div class="container">
-<br /><a href="/questions">Back to Questions Directory</a><br /><br />
-<a href="/questions/<%= params[:id] %>/edit">Edit Your Question</a><br /><br />
-<%= link_to 'Delete Question', "/questions/" + params[:id], :method => "delete" %><br>
-<h3>Question Information</h3>
+<div class="jumbotron">
+<div class="row">
+<div class="col-sm-12" padding-top=15px;>
+  <div class="btn-group btn-group-justified" role="group" aria-label="...">
+  <div class="btn-group" role="group">
+    <button type="button" class="btn btn-default"><a href="/questions">Back to Questions Directory</a></button>
+  </div>
+  <div class="btn-group" role="group">
+    <button type="button" class="btn btn-default"><a href="/questions/<%= params[:id] %>/edit">Edit Current Question</a></button>
+  </div>
+  <div class="btn-group" role="group">
+    <button type="button" class="btn btn-default"><%= link_to 'Delete Question', "/questions/" + params[:id], :method => "delete" %><br></button>
+  </div>
+</div>
+</div>
+</div><br />
+
 <h3><%= @questions.title %> </h3>
 
 <%= @questions.body %><br /><br />
 
 <%= form_for [@questions, @answers] do |f| %>
 <%= f.label :body, "Answer: " %><br />
-<%= f.text_area :body, :cols => "100", :rows => "10" %><br />
+<%= f.text_area :body, :cols => "110", :rows => "10" %><br />
 <%= f.submit %>
 <% end %>
 <br />
-<br />
-
+<div class="container">
 <% @answer_list = @answer_list.sort_by {|x| x.id}.reverse %>
+
 <% @answer_list.each do |answer| %>
+<div class="container3">
 <% user = User.where(id: answer.user_id) %>
-<%= user.first.first_name %>:<br>
+<b><%= user.first.first_name %>:</b><br>
+Posted: <%= answer.created_at %><br><br />
 <%= answer.body %> <br /><br />
+</div>
 <% end %>
+</div>
 </div>

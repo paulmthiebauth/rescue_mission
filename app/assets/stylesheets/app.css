@@ -38,7 +38,41 @@ a:visited {
 }
 
 .flash {
+  border-radius:6px;
   padding-top: 1em;
   padding-bottom: 1em;
   background-color: #3B9089;
+  border-style: solid;
+  margin-bottom: 15px;
+}
+
+.inline{
+  display: inline-block
+}
+
+.container2 {
+  max-width: 75%;
+  margin: 0 auto;
+  text-align: center;
+  font-size: 10px;
+  border-radius: 4px;
+}
+
+.right_side {
+  font_weight: bold;
+}
+
+.sign-up {
+  max-width: 50%;
+}
+
+.container3 {
+  max-width: 100%;
+  margin: 0 auto;
+  font-size: 12px;
+  border-radius: 4px;
+  border-style: solid;
+  border-width: 1px;
+  margin-bottom: 5px;
+  text-align: left;
 }

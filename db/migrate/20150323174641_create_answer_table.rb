@@ -4,6 +4,7 @@ class CreateAnswerTable < ActiveRecord::Migration
       t.integer :question_id, null: false
       t.integer :user_id, null: false
       t.string :body, null: false
+      t.timestamps
     end
   end
 end

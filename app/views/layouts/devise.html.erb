@@ -14,7 +14,7 @@
       <a class="navbar-brand" href="/">Directory</a>
       </div>
       <div id="navbar" class="navbar-collapse collapse">
-      <form class="navbar-form navbar-right ">
+      <form class="navbar-form navbar-right">
         <% if signed_in? %>
         <div class="navbar-form form-group">
         <a href="/questions/new">Ask A Question</a>
@@ -44,24 +44,26 @@
           <% elsif notice.is_a? String %>
           <%= notice %>
           <% elsif notice.size == 1 %>
-          <%= notice.first %>
+            <%= notice.first %>
           <% else %>
             <% flash[:notice].each do |flash| %>
             <%= flash %><br />
             <% end %>
             <% end %>
-
       </div>
     </div>
   <% end %>
 
+  <div class="jumbotron">
+
 <%= yield %>
 
+</div>
 
+</body>
 <div class="container2" style="text-center">
 <img src="http://s30.postimg.org/630lt93pp/Screen_Shot_2015_03_25_at_8_47_22_PM.png" style="width: 8%; height: 8%"><br />
 habitsu.<br />
 ©2015
 </div>
-</body>
 </html>
