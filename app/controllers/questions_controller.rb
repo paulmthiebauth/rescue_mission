@@ -1,11 +1,11 @@
 class QuestionsController < ApplicationController
-  before_filter :authenticate_user!
 
   def index
     @questions = Question.all
   end
 
   def show
+    authenticate_user!
     @questions = Question.find(params[:id])
     @answers = Answer.new
     @answer_list = Answer.where(question_id: params[:id])
@@ -13,10 +13,12 @@ class QuestionsController < ApplicationController
   end
 
   def new
+    authenticate_user!
     @questions = Question.new
   end
 
   def create
+    authenticate_user!
     user_id = current_user.id
     title = params["question"]["title"]
     body = params["question"]["body"]
@@ -31,10 +33,12 @@ class QuestionsController < ApplicationController
   end
 
   def edit
+    authenticate_user!
     @questions = Question.find(params[:id])
   end
 
   def update
+    authenticate_user!
     question = Question.where(id: params[:id])
     user_id = current_user.id
     owner_id = question.first.user_id
@@ -57,6 +61,7 @@ class QuestionsController < ApplicationController
   end
 
   def destroy
+    authenticate_user!
     question = Question.where(id: params[:id])
     user_id = current_user.id
     owner_id = question.first.user_id

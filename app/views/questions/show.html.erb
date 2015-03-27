@@ -22,7 +22,7 @@
 
 <%= form_for [@questions, @answers] do |f| %>
 <%= f.label :body, "Answer: " %><br />
-<%= f.text_area :body, :cols => "110", :rows => "10" %><br />
+<%= f.text_area :body, :cols => "113", :rows => "10" %><br />
 <%= f.submit %>
 <% end %>
 <br />
@@ -32,7 +32,7 @@
 <% @answer_list.each do |answer| %>
 <div class="container3">
 <% user = User.where(id: answer.user_id) %>
-<b><%= user.first.first_name %>:</b><br>
+<b><%= user.first.first_name %></b><br>
 Posted: <%= answer.created_at %><br><br />
 <%= answer.body %> <br /><br />
 </div>

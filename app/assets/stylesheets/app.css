@@ -38,9 +38,10 @@ a:visited {
 }
 
 .flash {
+  max-width: 50%;
   border-radius:6px;
-  padding-top: 1em;
-  padding-bottom: 1em;
+  padding-top: .5em;
+  padding-bottom: .5em;
   background-color: #3B9089;
   border-style: solid;
   margin-bottom: 15px;
@@ -73,6 +74,18 @@ a:visited {
   border-radius: 4px;
   border-style: solid;
   border-width: 1px;
-  margin-bottom: 5px;
+  margin-bottom: 18px;
   text-align: left;
+}
+
+#textArea {
+    box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    -ms-box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+     font-family: Helvetica, Arial, sans-serif;
+    height: 100%;
+    overflow: hidden;
+    position: absolute;
+    width: 100%;
 }

@@ -46,11 +46,10 @@
           <% elsif notice.size == 1 %>
           <%= notice.first %>
           <% else %>
-            <% flash[:notice].each do |flash| %>
-            <%= flash %><br />
-            <% end %>
-            <% end %>
-
+          <% flash[:notice].each do |flash| %>
+          <%= flash %><br />
+          <% end %>
+          <% end %>
       </div>
     </div>
   <% end %>
